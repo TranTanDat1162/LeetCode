@@ -22,6 +22,12 @@ class Solution {
                 }
             }
         }
+        
+        // Chỗ này nghĩa là nếu stack còn ký tự nào là sai luôn
+        // Bởi vì nếu còn thì chuỗi ban đầu vẫn còn đang trạng thái mở
         return stack.isEmpty();
+        // if (stack.isEmpty())
+        //     return true;
+        // return false;
     }
 }
