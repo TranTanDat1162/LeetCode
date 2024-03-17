@@ -4,10 +4,8 @@ class Solution {
         
         for (int i = 0; i <= haystack.length() - n; i++)
         {
-            if (haystack.substring(i, i + n).equals(needle))
-            {
+            if (needle.equals(haystack.substring(i, i + n)))
                 return i;
-            }
         }
         
         return -1;
