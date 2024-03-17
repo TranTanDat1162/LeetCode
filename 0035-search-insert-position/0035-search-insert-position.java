@@ -8,7 +8,7 @@ class Solution {
         }
         
         if (i == nums.length - 1)
-            return i + 1;
+            i = i + 1;
         return i;
     }
 }
