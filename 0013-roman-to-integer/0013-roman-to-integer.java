@@ -1,21 +1,22 @@
 class Solution {
     public int romanToInt(String s) {
-        Map<Character, Integer> mapCharacterString = new HashMap<>();
-        mapCharacterString.put('I', 1);
-        mapCharacterString.put('V', 5);
-        mapCharacterString.put('X', 10);
-        mapCharacterString.put('L', 50);
-        mapCharacterString.put('C', 100);
-        mapCharacterString.put('D', 500);
-        mapCharacterString.put('M', 1000);
+        Map<Character, Integer> charToInt = new HashMap<>();
+        
+        charToInt.put('I', 1);
+        charToInt.put('V', 5);
+        charToInt.put('X', 10);
+        charToInt.put('L', 50);
+        charToInt.put('C', 100);
+        charToInt.put('D', 500);
+        charToInt.put('M', 1000);
         
         int result = 0;
         int preValue = 0;
         
         for (char c : s.toCharArray())
         {
-            int currentValue = mapCharacterString.get(c);
-            if (currentValue > preValue)
+            int currentValue = charToInt.get(c);
+            if (preValue < currentValue)
             {
                 result += currentValue - 2 * preValue;
             }
@@ -23,6 +24,7 @@ class Solution {
             {
                 result += currentValue;
             }
+            
             preValue = currentValue;
         }
         
