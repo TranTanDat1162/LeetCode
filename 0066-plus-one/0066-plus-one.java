@@ -8,11 +8,10 @@ class Solution {
                 digits[i] = 0;
             else
                 return digits;
-            
         }
         
-        int[] result = new int [digits.length + 1];
-        result[0] = 1;
-        return result;
+        int[] results = new int [digits.length + 1];
+        results[0] = 1;
+        return results;
     }
 }
