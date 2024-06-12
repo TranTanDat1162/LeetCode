@@ -1,18 +1,17 @@
-import java.util.HashMap;
-
-public class Solution {
-
-    public static boolean containsDuplicate(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer, Integer> hashMap = new HashMap();
+        
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
+            if (hashMap.containsKey(nums[i])) {
                 return true;
-            } else {
-                map.put(nums[i], 1);
+            }
+            else
+            {
+                hashMap.put(nums[i], 1);
             }
         }
+        
         return false;
     }
-
 }
