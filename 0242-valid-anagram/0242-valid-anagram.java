@@ -9,6 +9,6 @@ class Solution {
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
             map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) - 1);
         }
-        return map.values().stream().allMatch(i -> i == 0);
+        return map.values().stream().allMatch(i -> i == 0 ? true : false);
     }
 }
