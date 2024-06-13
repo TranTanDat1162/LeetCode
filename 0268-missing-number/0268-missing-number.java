@@ -7,10 +7,7 @@ class Solution {
             if (hashMap.containsKey(hashMap.get(nums[i]) + 1)) {
                 return i;
             }
-            if (i == nums.length - 1) {
-                return i + 1;
-            }
         }
-        return -1;
+        return nums.length;
     }
 }
