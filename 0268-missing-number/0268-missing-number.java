@@ -1,5 +1,5 @@
 class Solution {
-    public static int missingNumber(int[] nums) {
+    public int missingNumber(int[] nums) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
