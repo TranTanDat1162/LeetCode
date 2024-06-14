@@ -5,7 +5,7 @@ class Solution {
             if (hashMap.containsKey(nums[i])) {
                 return true;
             }
-            hashMap.put(nums[i], 1);
+            hashMap.put(nums[i], 0);
         }
         return false;
     }
