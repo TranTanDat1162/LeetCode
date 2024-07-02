@@ -34,7 +34,7 @@ class Solution {
             // Update the sum
             ListNodeCurrent.next = new ListNode(sum % 10);
 
-            // Move to the next node
+            // This LOC will update the list node sum based on pointer
             ListNodeCurrent = ListNodeCurrent.next;
 
             // Move to the next node
