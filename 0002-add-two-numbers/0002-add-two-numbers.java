@@ -45,7 +45,7 @@ class Solution {
                 l2 = l2.next;
             }
 
-            // Update the carry
+            // Check if the carry is greater than 0 and add it to the list node
             if (carry > 0) {
                 ListNodeCurrent.next = new ListNode(carry);
             }
