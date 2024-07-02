@@ -10,32 +10,48 @@
  */
 class Solution {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
-        ListNode p1 = l1;
-        ListNode p2 = l2;
-        ListNode current = dummy;
+        // Create a new list node form the sum of the two numbers
+        ListNode listNodeSum = new ListNode();
+
+        // Create a pointer to the list node for every update
+        ListNode ListNodeCurrent = listNodeSum;
+
+        // Create a carry variable for the sum for case if the sum is greater than 10
         int carry = 0;
 
-        while (p1 != null || p2 != null) {
-            int val1 = p1 != null ? p1.val : 0;
-            int val2 = p2 != null ? p2.val : 0;
+        // Loop until one of the lists is empty
+        while (l1 != null || l2 != null) {
+            // Create val1 and val2 variables to store the values of the current nodes
+            int val1 = l1 != null ? l1.val : 0;
+            int val2 = l2 != null ? l2.val : 0;
+
+            // Calculate the sum
             int sum = val1 + val2 + carry;
+
+            // Update the carry
             carry = sum / 10;
-            current.next = new ListNode(sum % 10);
-            current = current.next;
 
-            if (p1 != null) {
-                p1 = p1.next;
+            // Update the sum
+            ListNodeCurrent.next = new ListNode(sum % 10);
+
+            // Move to the next node
+            ListNodeCurrent = ListNodeCurrent.next;
+
+            // Move to the next node
+            if (l1 != null) {
+                l1 = l1.next;
             }
-            if (p2 != null) {
-                p2 = p2.next;
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+
+            // Update the carry
+            if (carry > 0) {
+                ListNodeCurrent.next = new ListNode(carry);
             }
         }
 
-        if (carry != 0) {
-            current.next = new ListNode(carry);
-        }
-
-        return dummy.next;
+        // Return the list node
+        return listNodeSum.next;
     }
 }
