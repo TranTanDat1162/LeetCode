@@ -1,9 +1,6 @@
-import java.util.*;
-
-public class Solution {
-
-    public static int romanToInt(String s) {
-        // Create hash map for storing each character into value in roman number
+class Solution {
+    public int romanToInt(String s) {
+        // Create the hash map to store each character into number value
         HashMap<Character, Integer> hashMap = new HashMap<>();
 
         // Mapping data
@@ -15,23 +12,20 @@ public class Solution {
         hashMap.put('D', 500);
         hashMap.put('M', 1000);
 
-        // Create the result variable to store the integer from String s
+        // Create the result variable for storing the value of String s
         int result = 0;
 
-        // Looping
+        // Loop
         for (int i = 0; i < s.length(); i++) {
-            // If there is the next character is greater than before it, make the logic the result
+            // However, we calculate for case if the next character from i = 1
+            // is greater than the previous one, apply the logic for calculating the result
             if (i > 0 && hashMap.get(s.charAt(i)) > hashMap.get(s.charAt(i - 1)))
                 result += hashMap.get(s.charAt(i)) - 2 * hashMap.get(s.charAt(i - 1));
             else
+                // Calculate the result
                 result += hashMap.get(s.charAt(i));
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        String s = "III";
-        System.out.println(romanToInt(s));
     }
 }
