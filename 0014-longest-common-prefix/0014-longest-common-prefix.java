@@ -1,20 +1,16 @@
-import java.util.*;
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        // Create variable prefix for strs[0] assigned to
+        String prefix = strs[0];
 
-public class Solution {
-
-    public static String longestCommonPrefix(String[] strings) {
-        String result = strings[0];
-
-        for (String str: strings) {
-            while (str.indexOf(result) != 0)
-                result = result.substring(0, result.length() - 1);
+        // Loop
+        for (String str : strs) {
+            // Check if the prefix is appeared in other strs array
+            // Update for prefix
+            while (str.indexOf(prefix) != 0)
+                prefix = prefix.substring(0, prefix.length() - 1);
         }
 
-        return result;
-    }
-
-    public static void main(String[] args) {
-        String[] strings = new String[] {"flower","flow","flight"};
-        System.out.println(longestCommonPrefix(strings));
+        return prefix;
     }
 }
