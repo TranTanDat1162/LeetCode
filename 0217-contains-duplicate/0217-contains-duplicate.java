@@ -1,7 +1,6 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        return Arrays.stream(nums)
-                .distinct()
-                .count() < nums.length;
+                int[] listDistinct = Arrays.stream(nums).distinct().toArray();
+        return !Arrays.equals(nums, listDistinct);
     }
 }
