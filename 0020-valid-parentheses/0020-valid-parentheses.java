@@ -1,7 +1,10 @@
-class Solution {
-    public boolean isValid(String s) {
+import java.util.*;
+
+public class Solution {
+
+    public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<Character>();
-        
+
         for (char c : s.toCharArray())
         {
             if (c == '(')
@@ -13,9 +16,13 @@ class Solution {
             else if (stack.isEmpty() || stack.pop() != c)
                 return false;
         }
-        
-        if (stack.isEmpty())
-            return true;
-        return false;
+
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        String s = "()";
+        System.out.println(isValid(s));
+
     }
 }
