@@ -3,20 +3,28 @@ import java.util.*;
 public class Solution {
 
     public static boolean isValid(String s) {
-        Stack<Character> characterStack = new Stack<Character>();
-        
+        Stack<Character> closeBracketStack = new Stack<>();
+
         for (char c : s.toCharArray()) {
             if (c == '(')
-                characterStack.push(')');
+                closeBracketStack.push(')');
+
             else if (c == '[')
-                characterStack.push(']');
+                closeBracketStack.push(']');
+
             else if (c == '{')
-                characterStack.push('}');
-            else if (characterStack.isEmpty() || characterStack.pop() != c)
+                closeBracketStack.push('}');
+            
+            else if (closeBracketStack.isEmpty() || closeBracketStack.pop() != c) 
                 return false;
         }
-
-        return characterStack.isEmpty();
+        
+        return closeBracketStack.isEmpty();
     }
 
+    public static void main(String[] args) {
+        String s = "()[]";
+        System.out.println(isValid(s));
+
+    }
 }
