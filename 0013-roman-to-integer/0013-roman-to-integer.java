@@ -1,9 +1,8 @@
 class Solution {
     public int romanToInt(String s) {
-        // Create the hash map to store each character into number value
         HashMap<Character, Integer> hashMap = new HashMap<>();
-
-        // Mapping data
+        
+        // Put symbol into value roman
         hashMap.put('I', 1);
         hashMap.put('V', 5);
         hashMap.put('X', 10);
@@ -12,20 +11,16 @@ class Solution {
         hashMap.put('D', 500);
         hashMap.put('M', 1000);
 
-        // Create the result variable for storing the value of String s
-        int result = 0;
-
-        // Loop
+        // Declare the sum for adding value for every single character in string s
+        int sum = 0;
+        
         for (int i = 0; i < s.length(); i++) {
-            // However, we calculate for case if the next character from i = 1
-            // is greater than the previous one, apply the logic for calculating the result
             if (i > 0 && hashMap.get(s.charAt(i)) > hashMap.get(s.charAt(i - 1)))
-                result += hashMap.get(s.charAt(i)) - 2 * hashMap.get(s.charAt(i - 1));
+                sum += hashMap.get(s.charAt(i)) - hashMap.get(s.charAt(i - 1)) * 2;
             else
-                // Calculate the result
-                result += hashMap.get(s.charAt(i));
-        }
-
-        return result;
+                sum += hashMap.get(s.charAt(i));
+        }       
+        
+        return sum;
     }
 }
