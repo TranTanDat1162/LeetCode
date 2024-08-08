@@ -12,6 +12,8 @@ class Solution {
         
         
         // Cach 2
-        return map.entrySet().stream().min(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElseThrow();
+        return map.entrySet().stream().min(Map.Entry.comparingByValue())
+            .map(Map.Entry::getKey)
+                      .orElseThrow();
     }
 }
