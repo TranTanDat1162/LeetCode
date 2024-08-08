@@ -1,7 +1,7 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-        for (int i = digits.length - 1; i >= 0; i--)
-        {
+        // Handle the case there is no number to store
+        for (int i = digits.length - 1; i >= 0; i--) {
             digits[i]++;
             
             if (digits[i] == 10)
@@ -10,7 +10,8 @@ class Solution {
                 return digits;
         }
         
-        int[] results = new int [digits.length + 1];
+        // Handle the case there is number to store // 9999 => 10000
+        int[] results = new int[digits.length + 1];
         results[0] = 1;
         return results;
     }
